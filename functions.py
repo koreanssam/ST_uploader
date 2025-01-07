@@ -1,5 +1,5 @@
 import streamlit as st
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_community.document_loaders import PyPDFLoader, CSVLoader
 from langchain_milvus import Milvus
 from pymilvus import MilvusClient
@@ -10,7 +10,10 @@ def milvus():
 
 
 def embedding():
-    return GoogleGenerativeAIEmbeddings(model=f"models/{st.secrets['embedded']}", google_api_key=st.secrets["api_key"])
+    return OpenAIEmbeddings(
+        model=st.secrets["embedded"],
+        api_key=st.secrets["api_key"]
+    )
 
 
 def pdf_extractor(path):
