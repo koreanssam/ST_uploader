@@ -1,6 +1,6 @@
 from time import sleep
 import streamlit as st
-from file_uploader.functions import add_pdf, available_document, add_csv
+from functions import add_pdf, available_document, add_csv
 
 title = "RAG Uploader"
 
